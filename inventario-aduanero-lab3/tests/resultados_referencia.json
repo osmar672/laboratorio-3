@@ -1,0 +1,645 @@
+{
+  "database": "inventario_aduanero_lab3",
+  "tables": {
+    "pais": 18,
+    "importador": 18,
+    "exportador": 18,
+    "agente_aduanal": 15,
+    "categoria_arancelaria": 18,
+    "producto": 30,
+    "funcionario": 18,
+    "transportista": 15,
+    "bodega": 15,
+    "declaracion_aduanera": 30,
+    "detalle_declaracion": 60,
+    "contenedor": 30,
+    "inventario_bodega": 72,
+    "movimiento_inventario": 92,
+    "inspeccion": 24,
+    "evento_declaracion": 45
+  },
+  "query_results": {
+    "Q1": {
+      "title": "Declaraciones de importación durante octubre de 2026",
+      "columns": [
+        "total_importaciones_octubre"
+      ],
+      "rows": [
+        [
+          6
+        ]
+      ]
+    },
+    "Q2": {
+      "title": "Mercancías retenidas originarias de China en bodega 2",
+      "columns": [
+        "numero_declaracion",
+        "producto",
+        "cantidad",
+        "unidad_medida",
+        "bodega",
+        "pais_origen"
+      ],
+      "rows": [
+        [
+          "DA-2026-0001",
+          "Computadora portátil empresarial",
+          72,
+          "unidad",
+          "Bodega de Inspección 2",
+          "China"
+        ],
+        [
+          "DA-2026-0013",
+          "Batería de litio para equipo",
+          78,
+          "unidad",
+          "Bodega de Inspección 2",
+          "China"
+        ]
+      ]
+    },
+    "Q3": {
+      "title": "País de origen con más contenedores asociados a declaraciones",
+      "columns": [
+        "pais_origen",
+        "total_contenedores"
+      ],
+      "rows": [
+        [
+          "China",
+          3
+        ]
+      ]
+    },
+    "Q4": {
+      "title": "Importador con mayor valor declarado",
+      "columns": [
+        "importador",
+        "valor_total_declarado"
+      ],
+      "rows": [
+        [
+          "Distribuciones Bahía Verde Ltda.",
+          53298.63
+        ]
+      ]
+    },
+    "Q5": {
+      "title": "Inspecciones con observaciones y funcionario responsable",
+      "columns": [
+        "id_inspeccion",
+        "numero_declaracion",
+        "fecha",
+        "observaciones",
+        "funcionario",
+        "cargo"
+      ],
+      "rows": [
+        [
+          3,
+          "DA-2026-0021",
+          "2026-10-24 09:21:00",
+          "Se solicita ampliar evidencia del valor declarado.",
+          "Valentina Ruiz",
+          "Inspector aduanero"
+        ],
+        [
+          20,
+          "DA-2026-0020",
+          "2026-10-20 09:20:00",
+          "Se solicita ampliar evidencia del valor declarado.",
+          "Pablo Salazar",
+          "Inspector aduanero"
+        ],
+        [
+          19,
+          "DA-2026-0013",
+          "2026-10-16 09:13:00",
+          "Se solicita ampliar evidencia del valor declarado.",
+          "Sofía Campos Díaz",
+          "Inspector aduanero"
+        ],
+        [
+          14,
+          "DA-2026-0008",
+          "2026-10-10 09:38:00",
+          "Se solicita ampliar evidencia del valor declarado.",
+          "Esteban Arias",
+          "Analista de declaraciones"
+        ],
+        [
+          9,
+          "DA-2026-0003",
+          "2026-10-04 09:03:00",
+          "Se solicita ampliar evidencia del valor declarado.",
+          "Elena Gutiérrez",
+          "Técnico de inventario"
+        ],
+        [
+          4,
+          "DA-2026-0028",
+          "2026-09-11 09:28:00",
+          "Se solicita ampliar evidencia del valor declarado.",
+          "Jorge Elías Vargas",
+          "Coordinación de Inspección"
+        ]
+      ]
+    },
+    "Q6": {
+      "title": "Stock actual por producto en todas las bodegas",
+      "columns": [
+        "id_producto",
+        "producto",
+        "unidad_medida",
+        "stock_total"
+      ],
+      "rows": [
+        [
+          12,
+          "Aire acondicionado compacto",
+          "unidad",
+          235
+        ],
+        [
+          18,
+          "Arroz empacado",
+          "kg",
+          160
+        ],
+        [
+          13,
+          "Batería de litio para equipo",
+          "unidad",
+          288
+        ],
+        [
+          16,
+          "Bolso de viaje textil",
+          "unidad",
+          188
+        ],
+        [
+          5,
+          "Cable USB-C reforzado",
+          "unidad",
+          278
+        ],
+        [
+          23,
+          "Cable de red categoría 6",
+          "rollo",
+          148
+        ],
+        [
+          9,
+          "Café tostado en saco",
+          "kg",
+          210
+        ],
+        [
+          27,
+          "Café verde en saco",
+          "kg",
+          208
+        ],
+        [
+          6,
+          "Caja organizadora plástica",
+          "unidad",
+          213
+        ],
+        [
+          8,
+          "Camiseta de algodón",
+          "unidad",
+          178
+        ],
+        [
+          26,
+          "Chaqueta de trabajo",
+          "unidad",
+          268
+        ],
+        [
+          1,
+          "Computadora portátil empresarial",
+          "unidad",
+          118
+        ],
+        [
+          24,
+          "Contenedor apilable",
+          "unidad",
+          188
+        ],
+        [
+          22,
+          "Convertidor de voltaje",
+          "unidad",
+          208
+        ],
+        [
+          7,
+          "Escritorio de madera",
+          "unidad",
+          258
+        ],
+        [
+          15,
+          "Estantería metálica",
+          "unidad",
+          143
+        ],
+        [
+          14,
+          "Etiquetas autoadhesivas",
+          "rollo",
+          228
+        ],
+        [
+          28,
+          "Filtro para vehículo",
+          "unidad",
+          248
+        ],
+        [
+          4,
+          "Fuente de alimentación industrial",
+          "unidad",
+          238
+        ],
+        [
+          11,
+          "Kit de curación básico",
+          "caja",
+          208
+        ],
+        [
+          3,
+          "Memoria SSD 1 TB",
+          "unidad",
+          190
+        ],
+        [
+          19,
+          "Monitor LED 27 pulgadas",
+          "unidad",
+          208
+        ],
+        [
+          10,
+          "Neumático para automóvil",
+          "unidad",
+          168
+        ],
+        [
+          30,
+          "Panel solar pequeño",
+          "unidad",
+          208
+        ],
+        [
+          25,
+          "Silla de oficina",
+          "unidad",
+          228
+        ],
+        [
+          20,
+          "Tableta de uso profesional",
+          "unidad",
+          248
+        ],
+        [
+          21,
+          "Tarjeta de red empresarial",
+          "unidad",
+          283
+        ],
+        [
+          2,
+          "Teléfono inteligente gama media",
+          "unidad",
+          158
+        ],
+        [
+          29,
+          "Termómetro digital",
+          "unidad",
+          168
+        ],
+        [
+          17,
+          "Tornillería de acero",
+          "kg",
+          228
+        ]
+      ]
+    },
+    "Q7": {
+      "title": "Declaraciones que todavía no están liberadas o cerradas",
+      "columns": [
+        "numero_declaracion",
+        "fecha",
+        "regimen",
+        "estado",
+        "importador",
+        "exportador",
+        "parte_comercial",
+        "pais_origen"
+      ],
+      "rows": [
+        [
+          "DA-2026-0024",
+          "2026-09-03",
+          "deposito",
+          "pendiente",
+          "Textiles Prisma S.R.L.",
+          null,
+          "Textiles Prisma S.R.L.",
+          "Vietnam"
+        ],
+        [
+          "DA-2026-0027",
+          "2026-09-09",
+          "transito",
+          "en_revision",
+          "Soluciones Médicas Aurora S.A.",
+          null,
+          "Soluciones Médicas Aurora S.A.",
+          "Estados Unidos"
+        ],
+        [
+          "DA-2026-0030",
+          "2026-09-15",
+          "exportacion",
+          "en_revision",
+          null,
+          "Textiles Viento Sur Ltda.",
+          "Textiles Viento Sur Ltda.",
+          "Costa Rica"
+        ],
+        [
+          "DA-2026-0001",
+          "2026-10-01",
+          "importacion",
+          "pendiente",
+          "Distribuciones Bahía Verde Ltda.",
+          null,
+          "Distribuciones Bahía Verde Ltda.",
+          "China"
+        ],
+        [
+          "DA-2026-0004",
+          "2026-10-04",
+          "deposito",
+          "pendiente",
+          "Comercializadora Horizonte S.R.L.",
+          null,
+          "Comercializadora Horizonte S.R.L.",
+          "Italia"
+        ],
+        [
+          "DA-2026-0007",
+          "2026-10-07",
+          "transito",
+          "en_revision",
+          "Clima y Energía del Istmo S.A.",
+          null,
+          "Clima y Energía del Istmo S.A.",
+          "Vietnam"
+        ],
+        [
+          "DA-2026-0010",
+          "2026-10-10",
+          "exportacion",
+          "en_revision",
+          null,
+          "Cacao y Café de Altura Ltda.",
+          "Cacao y Café de Altura Ltda.",
+          "Costa Rica"
+        ],
+        [
+          "DA-2026-0011",
+          "2026-10-11",
+          "transito",
+          "retenida",
+          "Tecnología del Valle CR S.A.",
+          null,
+          "Tecnología del Valle CR S.A.",
+          "Colombia"
+        ],
+        [
+          "DA-2026-0013",
+          "2026-10-13",
+          "importacion",
+          "en_revision",
+          "Mundo Solar CR S.A.",
+          null,
+          "Mundo Solar CR S.A.",
+          "China"
+        ],
+        [
+          "DA-2026-0014",
+          "2026-10-14",
+          "exportacion",
+          "retenida",
+          null,
+          "Agroexportadora Tierra Fértil S.A.",
+          "Agroexportadora Tierra Fértil S.A.",
+          "Costa Rica"
+        ],
+        [
+          "DA-2026-0015",
+          "2026-10-15",
+          "transito",
+          "pendiente",
+          "ElectroNexo Centroamérica S.A.",
+          null,
+          "ElectroNexo Centroamérica S.A.",
+          "Alemania"
+        ],
+        [
+          "DA-2026-0016",
+          "2026-10-16",
+          "deposito",
+          "en_revision",
+          "Café y Equipo Profesional S.A.",
+          null,
+          "Café y Equipo Profesional S.A.",
+          "Brasil"
+        ],
+        [
+          "DA-2026-0017",
+          "2026-10-17",
+          "importacion",
+          "retenida",
+          "Alimentos Puente Real S.A.",
+          null,
+          "Alimentos Puente Real S.A.",
+          "México"
+        ],
+        [
+          "DA-2026-0018",
+          "2026-10-18",
+          "exportacion",
+          "pendiente",
+          null,
+          "Empaques Biodegradables del Valle S.A.",
+          "Empaques Biodegradables del Valle S.A.",
+          "Costa Rica"
+        ],
+        [
+          "DA-2026-0020",
+          "2026-10-20",
+          "deposito",
+          "retenida",
+          "Ferretería Central del Pacífico S.A.",
+          null,
+          "Ferretería Central del Pacífico S.A.",
+          "México"
+        ],
+        [
+          "DA-2026-0021",
+          "2026-10-21",
+          "importacion",
+          "pendiente",
+          "Papelera Roble Blanco Ltda.",
+          null,
+          "Papelera Roble Blanco Ltda.",
+          "Estados Unidos"
+        ]
+      ]
+    },
+    "Q8": {
+      "title": "Bodegas ordenadas por ocupación física respecto de capacidad",
+      "columns": [
+        "id_bodega",
+        "nombre",
+        "capacidad_kg",
+        "ocupacion_kg",
+        "porcentaje_ocupacion"
+      ],
+      "rows": [
+        [
+          5,
+          "Bodega de Alto Valor",
+          3471,
+          3367.17,
+          97.01
+        ],
+        [
+          11,
+          "Bodega de Retenidos",
+          2947,
+          2828.65,
+          95.98
+        ],
+        [
+          10,
+          "Bodega de Tránsito",
+          3182,
+          2927.13,
+          91.99
+        ],
+        [
+          13,
+          "Bodega Intermodal",
+          8000,
+          7040.3,
+          88.0
+        ],
+        [
+          8,
+          "Bodega de Consolidación",
+          8199,
+          7133.55,
+          87.01
+        ],
+        [
+          2,
+          "Bodega de Inspección 2",
+          651,
+          550.05,
+          84.49
+        ],
+        [
+          3,
+          "Bodega Fiscal Este",
+          608,
+          492.75,
+          81.04
+        ],
+        [
+          15,
+          "Bodega de Reserva",
+          379,
+          278.52,
+          73.49
+        ],
+        [
+          1,
+          "Bodega Central Norte",
+          4179,
+          3008.86,
+          72.0
+        ],
+        [
+          6,
+          "Bodega Temporal Sur",
+          317,
+          215.51,
+          67.98
+        ],
+        [
+          12,
+          "Bodega de Liberados",
+          307,
+          206.85,
+          67.38
+        ],
+        [
+          7,
+          "Bodega Refrigerada",
+          290,
+          189.74,
+          65.43
+        ],
+        [
+          9,
+          "Bodega de Exportaciones",
+          383,
+          233.35,
+          60.93
+        ],
+        [
+          4,
+          "Bodega de Carga General",
+          205,
+          104.69,
+          51.07
+        ],
+        [
+          14,
+          "Bodega de Documentación",
+          464,
+          227.35,
+          49.0
+        ]
+      ]
+    }
+  },
+  "checks": {
+    "fk_violations": 0,
+    "declarations_without_details": 0,
+    "movement_type_invalid": 0,
+    "duplicate_decl_product": 0,
+    "negative_values": 0,
+    "stock_reconciliation": 0
+  },
+  "n8n_tool_node_count": 10,
+  "mysql_server_test": "pending",
+  "n8n_import_test": "pending",
+  "generated_on": "2026-10-23"
+}

@@ -1,0 +1,148 @@
+erDiagram
+    pais ||--o{ declaracion_aduanera : origina
+    importador o|--o{ declaracion_aduanera : presenta
+    exportador o|--o{ declaracion_aduanera : registra
+    agente_aduanal ||--o{ declaracion_aduanera : tramita
+    categoria_arancelaria ||--o{ producto : clasifica
+    declaracion_aduanera ||--|{ detalle_declaracion : contiene
+    producto ||--o{ detalle_declaracion : aparece_en
+    transportista ||--o{ contenedor : transporta
+    declaracion_aduanera ||--o{ contenedor : ampara
+    bodega ||--o{ inventario_bodega : ubica
+    producto ||--o{ inventario_bodega : existencias
+    declaracion_aduanera ||--o{ inventario_bodega : trazabilidad
+    producto ||--o{ movimiento_inventario : registra
+    declaracion_aduanera ||--o{ movimiento_inventario : referencia
+    bodega o|--o{ movimiento_inventario : origen
+    bodega o|--o{ movimiento_inventario : destino
+    funcionario ||--o{ movimiento_inventario : ejecuta
+    declaracion_aduanera ||--o{ inspeccion : recibe
+    funcionario ||--o{ inspeccion : realiza
+    declaracion_aduanera ||--o{ evento_declaracion : historial
+    funcionario ||--o{ evento_declaracion : registra
+    funcionario o|--o{ funcionario : supervisa
+
+    pais {
+      INT id_pais PK
+      VARCHAR nombre
+      CHAR codigo_iso UK
+    }
+    importador {
+      INT id_importador PK
+      VARCHAR razon_social
+      VARCHAR identificacion_fiscal UK
+      VARCHAR direccion
+      VARCHAR telefono
+      VARCHAR correo UK
+    }
+    exportador {
+      INT id_exportador PK
+      VARCHAR razon_social
+      VARCHAR identificacion_fiscal UK
+      VARCHAR direccion
+      VARCHAR telefono
+      VARCHAR correo UK
+    }
+    agente_aduanal {
+      INT id_agente PK
+      VARCHAR nombre
+      VARCHAR numero_licencia UK
+      VARCHAR telefono
+      VARCHAR correo UK
+    }
+    categoria_arancelaria {
+      INT id_categoria PK
+      CHAR codigo_sa UK
+      VARCHAR descripcion
+      DECIMAL porcentaje_arancel
+    }
+    producto {
+      INT id_producto PK
+      VARCHAR descripcion
+      VARCHAR unidad_medida
+      DECIMAL valor_unitario
+      DECIMAL peso_unitario_kg
+      INT id_categoria FK
+    }
+    declaracion_aduanera {
+      INT id_declaracion PK
+      VARCHAR numero_declaracion UK
+      DATE fecha
+      VARCHAR regimen
+      VARCHAR estado
+      INT id_importador FK "nullable on export"
+      INT id_exportador FK "nullable except export"
+      INT id_agente FK
+      INT id_pais_origen FK
+      INT id_pais_destino FK NULL
+    }
+    detalle_declaracion {
+      INT id_detalle PK
+      INT id_declaracion FK
+      INT id_producto FK
+      INT cantidad
+      DECIMAL valor_unitario_declarado
+    }
+    contenedor {
+      INT id_contenedor PK
+      VARCHAR numero_contenedor UK
+      VARCHAR tipo
+      DECIMAL peso_kg
+      INT id_transportista FK
+      INT id_declaracion FK
+    }
+    bodega {
+      INT id_bodega PK
+      VARCHAR nombre UK
+      VARCHAR ubicacion
+      DECIMAL capacidad_kg
+    }
+    inventario_bodega {
+      INT id_inventario PK
+      INT id_bodega FK
+      INT id_producto FK
+      INT id_declaracion FK
+      INT cantidad
+      DATE fecha_ingreso
+      VARCHAR estado
+    }
+    movimiento_inventario {
+      INT id_movimiento PK
+      VARCHAR tipo_movimiento
+      DATETIME fecha
+      INT cantidad
+      INT id_producto FK
+      INT id_declaracion FK
+      INT id_bodega_origen FK
+      INT id_bodega_destino FK
+      INT id_funcionario FK
+      VARCHAR referencia UK
+    }
+    funcionario {
+      INT id_funcionario PK
+      VARCHAR nombre
+      VARCHAR cargo
+      INT id_supervisor FK
+    }
+    inspeccion {
+      INT id_inspeccion PK
+      DATETIME fecha
+      VARCHAR resultado
+      VARCHAR observaciones
+      INT id_declaracion FK
+      INT id_funcionario FK
+    }
+    transportista {
+      INT id_transportista PK
+      VARCHAR razon_social
+      VARCHAR codigo_registro UK
+      VARCHAR telefono
+    }
+    evento_declaracion {
+      INT id_evento PK
+      INT id_declaracion FK
+      DATETIME fecha_hora
+      VARCHAR tipo_evento
+      VARCHAR descripcion
+      INT id_funcionario FK
+    }
